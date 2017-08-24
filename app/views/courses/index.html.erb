@@ -3,12 +3,22 @@
 
 <div class='teacher-courses'>
   <% @courses.each do |course| %>
-  Course Name: <%= course.name %>
-  <%= link_to "Delete Course", teacher_course_path(course.teacher, course), method: :delete %>
-  <%= link_to "Edit Course", edit_teacher_course_path(course.teacher, course) %>
-  <% end %>
+  <div class="course">
+    Course Name: <%= course.name %>
+    <%= link_to "Delete Course", teacher_course_path(course.teacher, course), method: :delete %>
+    <%= link_to "Edit Course", edit_teacher_course_path(course.teacher, course) %>
+    <% end %>
+  </div>
 </div>
 
 <div class="btn">
 </div>
 <%= link_to "Add a course", new_teacher_course_path %>
+
+<div class="btn">
+  <%= link_to "Return to Teachers", teachers_path %>
+</div>
+
+<div class="btn">
+  <%= link_to "Home", root_path %>
+</div>

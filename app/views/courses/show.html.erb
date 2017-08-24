@@ -9,9 +9,10 @@
   </tr>
   <tr>
     <td><%= student.name %></td>
-    <td>Smith</td>
+    <td><%= student.get_student_grade(student.id, @course.id) %></td>
   </tr>
 </table>
 
-
 <% end %>
+
+<%= link_to 'Home', root_path %>
