@@ -6,7 +6,7 @@
 <div class="teachers-courses">
   <% @teacher.courses.each do |course| %>
   <div class="course">
-    <%= link_to course.name, teacher_course_path(course.id) %>
+    <%= link_to course.name, teacher_course_path(@teacher.id, course.id) %>
     <% end %>
   </div>
 </div>
