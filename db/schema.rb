@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823180620) do
+ActiveRecord::Schema.define(version: 20170824003728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20170823180620) do
     t.index ["teacher_id"], name: "index_courses_on_teacher_id", using: :btree
   end
 
+  create_table "student_courses", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "course_id"
+    t.integer  "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_student_courses_on_course_id", using: :btree
+    t.index ["student_id"], name: "index_student_courses_on_student_id", using: :btree
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -30,4 +46,6 @@ ActiveRecord::Schema.define(version: 20170823180620) do
   end
 
   add_foreign_key "courses", "teachers"
+  add_foreign_key "student_courses", "courses"
+  add_foreign_key "student_courses", "students"
 end
