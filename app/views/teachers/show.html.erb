@@ -1,0 +1,9 @@
+<h1>Teachers#show</h1>
+<p>Find me in app/views/teachers/show.html.erb</p>
+
+<h1><%= @teacher.name %></h1>
+
+<p><% @teacher.courses.each do |course| %>
+<%= link_to course.name, teacher_course_path(course.id) %>
+<% end %>
+</p>

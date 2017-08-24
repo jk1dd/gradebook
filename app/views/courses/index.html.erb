@@ -1,0 +1,14 @@
+<h1>Courses#index</h1>
+<p>Find me in app/views/courses/index.html.erb</p>
+
+<div class='teacher-courses'>
+  <% @courses.each do |course| %>
+  Course Name: <%= course.name %>
+  <%= link_to "Delete Course", teacher_course_path(course.teacher, course), method: :delete %>
+  <%= link_to "Edit Course", edit_teacher_course_path(course.teacher, course) %>
+  <% end %>
+</div>
+
+<div class="btn">
+</div>
+<%= link_to "Add a course", new_teacher_course_path %>
