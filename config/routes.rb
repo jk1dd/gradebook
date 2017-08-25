@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :teachers do
+  resources :teachers, only: [:index, :show] do
     resources :courses
   end
 

@@ -1,0 +1,11 @@
+<h1><%= @student.name %></h1>
+
+<div class="courses">
+  <div class="course">
+    <% @student.courses.each do |course| %>
+      <%= link_to "#{course.name}", student_course_path(@student.id, course.id) %>
+    <% end %>
+
+  </div>
+
+</div>
