@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Information</h1>
+
+  <h3>Enrollment counts are as follows:</h3>
+  <div class="row">
+    <% @courses.each do |course| %>
+    <%= course.name %>: <%= course.students.count %></br>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <h3>Average grades are:</h3>
+    <% @courses.each do |course| %>
+      <%= course.name %>: <%= course.average_grade(course.id) %></br>
+    <% end %>
+  </div>
+
+
+</div>

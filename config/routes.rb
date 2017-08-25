@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  get '/information', to: 'information#index'
+
   resources :teachers, only: [:index, :show] do
     resources :courses
   end
