@@ -3,6 +3,8 @@ class Student < ApplicationRecord
   has_many :courses, through: :student_courses
   accepts_nested_attributes_for :student_courses
 
+  validates_uniqueness_of :name
+
   def get_student_grade(student_id, course_id)
     StudentCourse.find_by(student_id: student_id, course_id: course_id).grade
   end
