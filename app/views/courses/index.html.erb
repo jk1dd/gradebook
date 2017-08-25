@@ -1,24 +1,30 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<div class="container">
 
-<div class='teacher-courses'>
-  <% @courses.each do |course| %>
-  <div class="course">
-    Course Name: <%= course.name %>
-    <%= link_to "Delete Course", teacher_course_path(course.teacher, course), method: :delete %>
-    <%= link_to "Edit Course", edit_teacher_course_path(course.teacher, course) %>
-    <% end %>
+<h1>Manage the courses of <%= @teacher.name %></h1>
+
+  <div class='teacher-courses'>
+    <% @courses.each do |course| %>
+    <table class='table table-bordered'>
+      <tr>
+        <th>Course</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= link_to "Delete Course", teacher_course_path(course.teacher, course), method: :delete %></td>
+        <td><%= link_to "Edit Course", edit_teacher_course_path(course.teacher, course) %></td>
+      </tr>
+      <% end %>
+    </table>
   </div>
-</div>
 
-<div class="btn">
-</div>
-<%= link_to "Add a course", new_teacher_course_path %>
+  <div class="btn btn-default">
+    <%= link_to "Add a course", new_teacher_course_path %>
+  </div>
 
-<div class="btn">
-  <%= link_to "Return to Teachers", teachers_path %>
-</div>
+  <div class="btn btn-default">
+    <%= link_to "Return to #{@teacher.name}", teacher_path(@teacher.id) %>
+  </div>
 
-<div class="btn">
-  <%= link_to "Home", root_path %>
 </div>

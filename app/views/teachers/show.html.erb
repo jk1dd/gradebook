@@ -1,24 +1,18 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<div class="container">
+  <h1><%= @teacher.name %></h1>
 
-<h1><%= @teacher.name %></h1>
-
-<div class="teachers-courses">
-  <% @teacher.courses.each do |course| %>
-  <div class="course">
-    <%= link_to course.name, teacher_course_path(@teacher.id, course.id) %>
-    <% end %>
+  <div class="list-group">
+    <% @teacher.courses.each do |course| %>
+      <%= link_to course.name, teacher_course_path(@teacher.id, course.id), class: 'list-group-item' %>
+      <% end %>
   </div>
-</div>
 
-<div class="btn">
-  <%= link_to "Manage the courses of #{@teacher.name}", teacher_courses_path(@teacher) %>
-</div>
+  <div class="btn btn-default">
+    <%= link_to "Manage the courses of #{@teacher.name}", teacher_courses_path(@teacher) %>
+  </div>
 
-<div class="btn">
-  <%= link_to "Return to Teachers", teachers_path %>
-</div>
+  <div class="btn btn-default">
+    <%= link_to "Return to Teachers", teachers_path %>
+  </div>
 
-<div class="btn">
-  <%= link_to "Home", root_path %>
 </div>

@@ -1,14 +1,10 @@
-<h1>Teachers#index</h1>
-<p>Find me in app/views/teachers/index.html.erb</p>
+<div class="container">
+  <h1>All Teachers</h1>
 
-<h1>Here is a list of all the Teachers</h1>
+  <div class="list-group">
+    <% @teachers.each do |teacher| %>
+    <%= link_to "#{teacher.name}", teacher_path(teacher), class: "list-group-item" %>
+    <% end %>
+  </div>
 
-<div class="teachers-list">
-  <% @teachers.each do |teacher| %>
-    <%= link_to "#{teacher.name}", teacher_path(teacher) %>
-  <% end %>
-</div>
-
-<div class="btn">
-  <%= link_to "Home", root_path %>
 </div>
