@@ -1,11 +1,13 @@
-<h1>Courses#edit</h1>
-<p>Find me in app/views/courses/edit.html.erb</p>
+<div class="container">
+  <h1>Edit <%= "#{@course.name}" %></h1>
 
-<%= form_for [:teacher, @course] do |f| %>
+  <%= form_for [@teacher, @course] do |f| %>
 
   <%= f.label :name, "Course Name" %>
   <%= f.text_field :name %>
 
   <%= f.submit "Submit" %>
 
-<% end %>
+  <% end %>
+
+</div>
