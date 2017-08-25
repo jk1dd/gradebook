@@ -1,18 +1,23 @@
-<h1><%= @course.name %></h1>
+<div class="container">
+  <h1><%= @course.name %></h1>
 
-<% @course.students.each do |student| %>
+  <% @course.students.each do |student| %>
 
-<table class='table'>
-  <tr>
-    <th>Name</th>
-    <th>Grade</th>
-  </tr>
-  <tr>
-    <td><%= student.name %></td>
-    <td><%= student.get_student_grade(student.id, @course.id) %></td>
-  </tr>
-</table>
+  <table class='table table-bordered'>
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+    </tr>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.get_student_grade(student.id, @course.id) %></td>
+    </tr>
+  </table>
 
-<% end %>
+  <% end %>
 
-<%= link_to 'Home', root_path %>
+  <div class="btn btn-default">
+    <%= link_to "Return to #{@teacher.name}", teacher_path(@teacher) %>
+  </div>
+
+</div>

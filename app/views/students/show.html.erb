@@ -1,11 +1,23 @@
-<h1><%= @student.name %></h1>
+<div class="container">
+  <h1>The courses of <%= @student.name %></h1>
 
-<div class="courses">
-  <div class="course">
+
+
+  <table class="table table-bordered">
     <% @student.courses.each do |course| %>
-      <%= link_to "#{course.name}", student_course_path(@student.id, course.id) %>
+
+    <tr>
+      <th>Course</th>
+      <th>Grade</th>
+    </tr>
+    <tr>
+      <td><%= link_to "#{course.name}", student_course_path(@student.id, course.id), class: "list-group-item" %></td>
+      <td><%= @student.get_student_grade(@student.id, course.id) %></td>
+    </tr>
     <% end %>
+  </table>
 
+  <div class="btn btn-default">
+    <%= link_to "Return to Students", students_path %>
   </div>
-
 </div>
