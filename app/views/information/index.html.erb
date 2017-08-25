@@ -2,18 +2,25 @@
   <h1>Information</h1>
 
   <h3>Enrollment counts are as follows:</h3>
-  <div class="row">
+  <table class="table table-bordered table-condensed table-hover">
     <% @courses.each do |course| %>
-    <%= course.name %>: <%= course.students.count %></br>
+    <tr>
+      <td><%= course.students.count %></td>
+      <td><%= course.name %></td>
+    </tr>
     <% end %>
-  </div>
+  </table>
 
-  <div class="row">
-    <h3>Average grades are:</h3>
+  <h3>Average grades are:</h3>
+    <table class="table table-bordered table-condensed table-hover">
     <% @courses.each do |course| %>
-      <%= course.name %>: <%= course.average_grade(course.id) %></br>
+    <tr>
+      <td><%= course.average_grade(course.id) %></td>
+      <td><%= course.name %></td>
+    </tr>
+
     <% end %>
-  </div>
+  </table>
 
 
 </div>
